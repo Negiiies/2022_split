@@ -1,9 +1,9 @@
 /*
  * E89 Pedagogical & Technical Lab
- * project:     strlen
+ * project:     printf
  * created on:  2022-12-19 - 16:45 +0100
  * 1st author:  dylan.le - dylan.le
- * description: printf
+ * description: strlen
  */
 
 unsigned int stu_strlen(const char *str)

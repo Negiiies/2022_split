@@ -30,7 +30,7 @@ static int count_letter(const char *str, char token, int index)
 
     index += 1;
     counter = 0;
-    while (str[index] != '\0' || str[index] != token) {
+    while (str[index] != '\0' && str[index] != token) {
         index += 1;
         counter += 1;
     }
@@ -53,19 +53,23 @@ char **split(const char *str, char token)
     sp = malloc(sizeof(char *) * (token_counter(str, token) + 2));
     sp[token_counter(str, token) + 1] = NULL;
     while (str[i] != '\0') {
-        if (str[i] == token) {
+        if (str[i] == token
+            || (i == 0 && str[i] != token)) {
             sp[j] = malloc(sizeof(char) * (count_letter(str, token, i) + 1));
             sp[j][count_letter(str, token, i)] = '\0';
-            i += 1;
-            while (str[i] != token || str[i] != '\0') {
+            if (str[i] == token) {
+                i += 1;
+            }
+            while (str[i] != token && str[i] != '\0') {
                 sp[j][k] = str[i];
                 i += 1;
                 k += 1;
             }
             k = 0;
             j += 1;
+        } else {
+            i += 1;
         }
-        i += 1;
     }
     return sp;
 }

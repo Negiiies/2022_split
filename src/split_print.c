@@ -11,11 +11,9 @@
 static int stu_puts(const char *str)
 {
     int i;
-    char c;
-    c = '\n';
     i = stu_strlen(str);
     i = write(1, str, i);
-    write(1, &c, 1);
+    write(1, "\n", 1);
     if (i < 0){
         return (-1);
     } else {
@@ -28,7 +26,7 @@ void split_print(char **sp)
     int i;
 
     i = 0;
-    while(sp[i] != NULL) {
+    while (sp[i] != NULL) {
         stu_puts(sp[i]);
         stu_puts("\n");
         i += 1;
