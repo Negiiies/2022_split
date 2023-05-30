@@ -19,7 +19,7 @@
 char *stu_strdup (const char *str);
 void split_delete(char **sp);
 void split_print(char **sp);
-unsigned int split_size(char **sp);
+unsigned int split_size(const char **sp);
 unsigned int stu_strlen(const char *str);
 char **split(const char* str, char token);
 
